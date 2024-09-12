@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
 class TicTacToe:
     def __init__(self, root):
         self.root = root
@@ -13,8 +14,10 @@ class TicTacToe:
         
         for i in range(3):
             for j in range(3):
-                self.buttons[i][j] = tk.Button(root, text=" ", font=("Arial", 20), width=5, height=2,
-                                               command=lambda i=i, j=j: self.make_move(i, j))
+                self.buttons[i][j] = tk.Button(
+                    root, text=" ", font=("Arial", 20), width=5, height=2,
+                    command=lambda i=i, j=j: self.make_move(i, j)
+                )
                 self.buttons[i][j].grid(row=i, column=j)
     
     def make_move(self, row, col):
@@ -59,6 +62,7 @@ class TicTacToe:
         for i in range(3):
             for j in range(3):
                 self.buttons[i][j].config(text=" ")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
