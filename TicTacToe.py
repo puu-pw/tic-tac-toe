@@ -27,26 +27,36 @@ class TicTacToe:
             
             winner = self.check_winner()
             if winner:
-                messagebox.showinfo("Tic-Tac-Toe", f"Player {winner} wins!")
+                messagebox.showinfo(
+                    "Tic-Tac-Toe", f"Player {winner} wins!"
+                )
                 self.reset_board()
             elif self.is_full():
-                messagebox.showinfo("Tic-Tac-Toe", "It's a tie!")
+                messagebox.showinfo(
+                    "Tic-Tac-Toe", "It's a tie!"
+                )
                 self.reset_board()
             else:
-                self.current_player = "O" if self.current_player == "X" else "X"
+                self.current_player = (
+                    "O" if self.current_player == "X" else "X"
+                )
     
     def check_winner(self):
         # Check rows and columns
         for i in range(3):
-            if self.board[i][0] == self.board[i][1] == self.board[i][2] and self.board[i][0] != " ":
+            if self.board[i][0] == self.board[i][1] == self.board[i][2] \
+                    and self.board[i][0] != " ":
                 return self.board[i][0]
-            if self.board[0][i] == self.board[1][i] == self.board[2][i] and self.board[0][i] != " ":
+            if self.board[0][i] == self.board[1][i] == self.board[2][i] \
+                    and self.board[0][i] != " ":
                 return self.board[0][i]
         
         # Check diagonals
-        if self.board[0][0] == self.board[1][1] == self.board[2][2] and self.board[0][0] != " ":
+        if self.board[0][0] == self.board[1][1] == self.board[2][2] \
+                and self.board[0][0] != " ":
             return self.board[0][0]
-        if self.board[0][2] == self.board[1][1] == self.board[2][0] and self.board[0][2] != " ":
+        if self.board[0][2] == self.board[1][1] == self.board[2][0] \
+                and self.board[0][2] != " ":
             return self.board[0][2]
         
         return None
@@ -68,3 +78,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     game = TicTacToe(root)
     root.mainloop()
+
